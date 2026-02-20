@@ -117,7 +117,7 @@ export default function Info({
               borderNames.map((item) => (
                 <li key={item}>
                   <Link
-                    className="px-3 py-3 text-center bg-white rounded-md max-w-28 text-lightText shadow-light dark:bg-darkEl dark:text-darkText dark:shadow-dark"
+                    className="block px-3 py-3 text-center bg-white rounded-md max-w-28 text-lightText shadow-light dark:bg-darkEl dark:text-darkText dark:shadow-dark"
                     to={`/country/${item}`}
                   >
                     {item}
