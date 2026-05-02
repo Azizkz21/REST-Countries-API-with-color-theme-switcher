@@ -1,13 +1,22 @@
-import { Link } from "react-router-dom";
-import { useAppDispatch } from "../hooks/hooks";
+"use client";
+
+import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { toggleTheme } from "../features/theme/themeSlice";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 export default function Header() {
   const dispatch = useAppDispatch();
+  const { setTheme } = useTheme();
+  const mode = useAppSelector((state) => state.theme.mode);
+  useEffect(() => {
+    setTheme(mode);
+  }, [mode, setTheme]);
   return (
-    <header className="flex items-center justify-between gap-2 px-4 py-4 bg-white shadow-light dark:bg-darkEl dark:shadow-dark">
+    <header className="flex items-center justify-between gap-2 bg-white px-4 py-4 shadow-light dark:bg-darkEl dark:shadow-dark">
       <Link
-        to={"/"}
+        href={"/"}
         className="text-base font-bold text-lightText dark:text-darkText sm:text-xl"
       >
         Where in the world?

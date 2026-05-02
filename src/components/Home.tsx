@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import List from "../components/List";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
@@ -15,7 +17,7 @@ export default function Home() {
     dispatch(fetchCountries());
   }, [dispatch]);
   return (
-    <section className="flex flex-col w-full gap-6 mx-auto my-0 max-w-7xl lg:gap-12">
+    <section className="mx-auto my-0 flex w-full max-w-7xl flex-col gap-6 lg:gap-12">
       <form className="flex flex-col items-center justify-between gap-4 sm:flex-row">
         <Search />
         <RegionSelect />

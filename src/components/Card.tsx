@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+
+import Link from "next/link";
 import type { Country } from "../types/types";
 
 export default function Card({
@@ -11,7 +12,7 @@ export default function Card({
   return (
     <li>
       <Link
-        to={`/country/${name.common}`}
+        href={`/details/${name.common}`}
         className="block h-full bg-white dark:bg-darkEl shadow-light"
       >
         <div className="h-h150">

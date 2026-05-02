@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import type { DetailCountry } from "../types/types";
 
 type InfoProps = DetailCountry & {
@@ -106,19 +106,21 @@ export default function Info({
             </li>
           </ul>
         </div>
-        <div className="flex flex-col gap-4 lg:items-center lg:flex-row">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
           <p className="text-base font-bold text-lightText dark:text-darkText">
             Border countries
           </p>
           <ul className="flex flex-wrap items-center gap-4">
             {borderNames.length === 0 ? (
-              <li className="text-base text-lightText dark:text-darkText">--</li>
+              <li className="text-base text-lightText dark:text-darkText">
+                --
+              </li>
             ) : (
               borderNames.map((item) => (
                 <li key={item}>
                   <Link
                     className="block px-3 py-3 text-center bg-white rounded-md max-w-28 text-lightText shadow-light dark:bg-darkEl dark:text-darkText dark:shadow-dark"
-                    to={`/country/${item}`}
+                    href={`/details/${item}`}
                   >
                     {item}
                   </Link>

@@ -1,18 +1,22 @@
-import React, { useEffect } from "react";
-import { useAppSelector } from "../hooks/hooks";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+
 
 type Props = {
   children: React.ReactNode;
 };
 
-export default function ThemeProvider({ children }: Props) {
-  const mode = useAppSelector((s) => s.theme.mode);
-
+export default function Providers({ children }: Props) {
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    const html = document.documentElement;
-    html.classList.toggle("dark", mode === "dark");
-    html.style.colorScheme = mode;
-    localStorage.setItem("theme", mode);
-  }, [mode]);
-  return <>{children}</>;
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <>{children}</>;
+  }
+
+  return <NextThemesProvider attribute="class" defaultTheme="light" enableSystem={false}>{children}</NextThemesProvider>;
 }

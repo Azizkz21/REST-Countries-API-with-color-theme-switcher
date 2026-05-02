@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+"use client";
+
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { useEffect } from "react";
 import {
@@ -12,10 +13,13 @@ import {
   selectDetailsStatus,
 } from "../features/details/detailsSlice";
 import Info from "../components/Info";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function Details() {
   const dispatch = useAppDispatch();
-  const { name } = useParams();
+  const params = useParams();
+  const name = params?.name as string;
 
   const info = useAppSelector(selectDetailsInfo);
   const borderNames = useAppSelector(selectBorderNames);
@@ -39,7 +43,7 @@ export default function Details() {
   return (
     <section className="flex flex-col w-full gap-6 mx-auto my-0 max-w-7xl lg:gap-12">
       <Link
-        to={"/"}
+        href={"/"}
         className="px-3 py-3 text-center bg-white rounded-md max-w-28 text-lightText shadow-light dark:bg-darkEl dark:text-darkText dark:shadow-dark"
       >
         Back
