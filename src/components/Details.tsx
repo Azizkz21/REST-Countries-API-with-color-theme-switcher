@@ -19,7 +19,8 @@ import { useParams } from "next/navigation";
 export default function Details() {
   const dispatch = useAppDispatch();
   const params = useParams();
-  const name = params?.name as string;
+  const rawName = params?.name as string;
+  const name = rawName ? decodeURIComponent(rawName) : "";
 
   const info = useAppSelector(selectDetailsInfo);
   const borderNames = useAppSelector(selectBorderNames);
