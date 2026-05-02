@@ -1,6 +1,6 @@
 # Countries API Explorer
 
-A small React app based on the Frontend Mentor challenge: **REST Countries API with Color Theme Switcher**.
+A robust web application built with Next.js 15 based on the Frontend Mentor challenge: **REST Countries API with Color Theme Switcher**.
 
 Users can:
 - view all countries
@@ -8,7 +8,7 @@ Users can:
 - filter countries by region
 - open a country details page
 - view border countries and navigate to them
-- switch between light and dark theme
+- Toggle between light and dark themes (persisted via next-themes).
 
 ## Tech Stack
 
@@ -16,9 +16,8 @@ Users can:
 - TypeScript
 - Redux Toolkit (RTK)
 - React Redux
-- React Router DOM
 - Tailwind CSS
-- Vite
+- Next.js 15
 - ESLint + Prettier
 
 ## Run Locally
@@ -31,6 +30,4 @@ npm run dev
 ## Available Scripts
 
 - `npm run dev` - start dev server
-- `npm run lint` - run linter
 - `npm run build` - type-check and build for production
-- `npm run preview` - preview production build
